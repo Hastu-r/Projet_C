@@ -77,7 +77,7 @@ Menu d'édition :
 - Visualisation du fichier SVG.
 - Saisie patiente : les entrées invalides sont re-demandées.
 
-## Limites connues
+## Limites
 
 - L'ouverture de fichier existant (option `1. Ouvrir`) n'est pas implémentée.
 - La visualisation ouvre le fichier tel qu'il est sur le disque : les
