@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #include "saisie.h"
@@ -48,6 +49,7 @@ int lire_entier(const char *invite)
         if (sscanf(saisie, "%d %c", &valeur, &reste) == 1)
             return valeur;
 
+        system("clear");
         printf("Veuillez entrer un nombre entier.\n");
     }
 }

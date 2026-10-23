@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #include "document.h"
@@ -16,6 +17,7 @@ int main(void)
         return -1;
     }
     
+    system("clear");
     char ligne[256];
     int continuer = 1;
 
@@ -30,10 +32,14 @@ int main(void)
             continuer = 0;
 
         if (strcmp(ligne, "1") == 0)
+        {
+            system("clear");
             printf("Pas pris en charge pour le moment\n");
+        }
 
         else if (strcmp(ligne, "2") == 0)
         {
+            system("clear");
             char nom[256];
             if (lire_ligne("Nom du fichier SVG (ex: dessin.svg) : ", nom, sizeof nom) == 0 && nom[0] != '\0')
             {
@@ -43,7 +49,10 @@ int main(void)
         }
 
         else if (strcmp(ligne, "0") == 0)
+        {
+            system("clear");
             continuer = 0;
+        }
 
         else
             printf("Commande inconnue : %s\n", ligne);

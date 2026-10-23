@@ -10,6 +10,7 @@
 
 static void ajouter_element(document *doc)
 {
+    system("clear");
     char saisie_ajouter[256];
     int position;
     int continuer_ajouter = 1;
@@ -29,36 +30,44 @@ static void ajouter_element(document *doc)
 
         if (strcmp(saisie_ajouter, "1") == 0)
         {
+            system("clear");
             position = lire_entier("Quelle position dans la liste : ");
             ajouter_cercle(doc, position);
         }
         
         else if (strcmp(saisie_ajouter, "2") == 0)
         {
+            system("clear");
             position = lire_entier("Quelle position dans la liste : ");
             ajouter_ellipse(doc, position);   
         }
 
         else if (strcmp(saisie_ajouter, "3") == 0)
         {
+            system("clear");
             position = lire_entier("Quelle position dans la liste : ");
             ajouter_rectangle(doc, position);
         }
 
         else if (strcmp(saisie_ajouter, "4") == 0)
         {
+            system("clear");
             position = lire_entier("Quelle position dans la liste : ");
             ajouter_ligne(doc, position);
         }
 
         else if (strcmp(saisie_ajouter, "5") == 0)
         {
+            system("clear");
             position = lire_entier("Quelle position dans la liste : ");
             ajouter_carre(doc, position);
         }
 
         else if (strcmp(saisie_ajouter, "0") == 0)
+        {
+            system("clear");
             continuer_ajouter = 0;
+        }
 
         else
             printf("Commande inconnue : %s\n", saisie_ajouter);      
@@ -106,10 +115,12 @@ static void modif(document *doc)
     forme *element = lire_id_valide(doc);
     if (element == NULL)
     {
+        system("clear");
         printf("Aucun element avec cet id.\n");
         return ;
     }
 
+    system("clear");
     modifier_forme(element);
 
     return;
@@ -118,13 +129,20 @@ static void modif(document *doc)
 
 static void supprimer_element(document *doc)
 {
+    if (doc == NULL)
+        return;
+
+    afficher_document(doc);
+
     forme *element = lire_id_valide(doc);
     if (element == NULL)
     {
+        system("clear");
         printf("Aucun element avec cet id.\n");
         return;
     }
 
+    system("clear");
     int id = element->id;
     if (supprimer_forme(doc, id) == 0)
         printf("Forme %d supprimée.\n", id);
@@ -140,6 +158,7 @@ static void afficher_element(document *doc)
     forme *element = lire_id_valide(doc);
     if (element == NULL)
     {
+        system("clear");
         printf("Aucun element avec cet id.\n");
         return;
     }
@@ -152,6 +171,7 @@ static void afficher_element(document *doc)
 
 void editer(document *doc)
 {
+    system("clear");
     char saisie_editer[256];
     int continuer_editer = 1;
 
@@ -171,22 +191,37 @@ void editer(document *doc)
             return;
 
         if (strcmp(saisie_editer, "1") == 0)
+        {
+            system("clear");
             afficher_document(doc);
+        }
 
         else if (strcmp(saisie_editer, "2") == 0)
-            afficher_element(doc);
+        {
+            system("clear");
+            afficher_element(doc);          
+        }
 
         else if (strcmp(saisie_editer, "3") == 0)
+        {
+            system("clear");
             ajouter_element(doc);
+        }
 
         else if (strcmp(saisie_editer, "4") == 0)
+        {
+            system("clear");
             supprimer_element(doc);
-
+        }
         else if (strcmp(saisie_editer, "5") == 0)
+        {
+            system("clear");
             modif(doc);
+        }
 
         else if (strcmp(saisie_editer, "6") == 0)
         {
+            system("clear");
             FILE *present = fopen(doc->nom_fichier, "r");
             if (present == NULL)
             {
@@ -203,6 +238,7 @@ void editer(document *doc)
 
         else if (strcmp(saisie_editer, "7") == 0)
         {
+            system("clear");
             if (svg_sauver(doc, doc->nom_fichier) == 0)
                 printf("Document sauvegardé dans %s\n", doc->nom_fichier);
             else
@@ -210,7 +246,10 @@ void editer(document *doc)
         }
 
         else if (strcmp(saisie_editer, "0") == 0)
+        {
+            system("clear");
             continuer_editer = 0;
+        }
 
         else
             printf("Commande inconnue : %s\n", saisie_editer);           
